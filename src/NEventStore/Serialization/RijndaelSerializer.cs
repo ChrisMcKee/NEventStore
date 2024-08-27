@@ -10,7 +10,7 @@ namespace NEventStore.Serialization
     public class RijndaelSerializer : ISerialize
     {
         private const int KeyLength = 16; // bytes
-        private static readonly ILogger Logger = LogFactory.BuildLogger(typeof (RijndaelSerializer));
+        private static readonly ILogger Logger = LogFactory.BuildLogger(typeof(RijndaelSerializer));
         private readonly byte[] _encryptionKey;
         private readonly ISerialize _inner;
 
@@ -24,10 +24,10 @@ namespace NEventStore.Serialization
             _encryptionKey = encryptionKey;
             _inner = inner;
         }
-        
+
         public virtual void Serialize<T>(Stream output, T graph)
         {
-            Logger.LogTrace(Messages.SerializingGraph, typeof (T));
+            Logger.LogTrace(Messages.SerializingGraph, typeof(T));
 
             using (var rijndael = new RijndaelManaged())
             {
@@ -49,7 +49,7 @@ namespace NEventStore.Serialization
 
         public virtual T Deserialize<T>(Stream input)
         {
-            Logger.LogTrace(Messages.DeserializingStream, typeof (T));
+            Logger.LogTrace(Messages.DeserializingStream, typeof(T));
 
             using (var rijndael = new RijndaelManaged())
             {

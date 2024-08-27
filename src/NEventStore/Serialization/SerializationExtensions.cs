@@ -32,7 +32,7 @@ namespace NEventStore.Serialization
         /// <returns>The reconstituted object, if any.</returns>
         public static T Deserialize<T>(this ISerialize serializer, byte[] serialized)
         {
-            serialized = serialized ?? new byte[] {};
+            serialized = serialized ?? new byte[] { };
             if (serialized.Length == 0)
             {
                 return default(T);

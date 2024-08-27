@@ -13,20 +13,9 @@ namespace NEventStore
     using NEventStore.Persistence;
     using NEventStore.Persistence.AcceptanceTests;
     using NEventStore.Persistence.AcceptanceTests.BDD;
-#if MSTEST
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-#endif
-#if NUNIT
     using NUnit.Framework;
-#endif
-#if XUNIT
-    using Xunit;
-    using Xunit.Should;
-#endif
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_building_a_stream : on_the_event_stream
     {
         private const int MinRevision = 2;
@@ -101,9 +90,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_the_head_event_revision_is_less_than_the_max_desired_revision : on_the_event_stream
     {
         private readonly int _eventsPerCommit = 2;
@@ -140,9 +127,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_reading_up_to_revision : on_the_event_stream
     {
         private readonly int _eventsPerCommit = 2;
@@ -179,9 +164,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_adding_a_null_event_message : on_the_event_stream
     {
         private Exception _thrown;
@@ -198,9 +181,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_adding_an_unpopulated_event_message : on_the_event_stream
     {
         private Exception _thrown;
@@ -217,9 +198,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_adding_a_fully_populated_event_message : on_the_event_stream
     {
         protected override void Because()
@@ -234,9 +213,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_adding_multiple_populated_event_messages : on_the_event_stream
     {
         protected override void Because()
@@ -252,9 +229,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_adding_a_simple_object_as_an_event_message : on_the_event_stream
     {
         private const string MyEvent = "some event data";
@@ -277,9 +252,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_clearing_any_uncommitted_changes : on_the_event_stream
     {
         protected override void Context()
@@ -299,9 +272,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_committing_an_empty_changeset : on_the_event_stream
     {
         protected override void Because()
@@ -328,9 +299,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_committing_any_uncommitted_changes : on_the_event_stream
     {
         private readonly Guid _commitId = Guid.NewGuid();
@@ -471,9 +440,7 @@ namespace NEventStore
     ///     This behavior is primarily to support a NoSQL storage solution where CommitId is not being used as the "primary key"
     ///     in a NoSQL environment, we'll most likely use StreamId + CommitSequence, which also enables optimistic concurrency.
     /// </summary>
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_committing_with_an_identifier_that_was_previously_read : on_the_event_stream
     {
         private ICommit[] _committed;
@@ -502,9 +469,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_committing_after_another_thread_or_process_has_moved_the_stream_head : on_the_event_stream
     {
         private const int StreamRevision = 1;
@@ -562,9 +527,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_attempting_to_invoke_behavior_on_a_disposed_stream : on_the_event_stream
     {
         private Exception _thrown;
@@ -586,9 +549,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_attempting_to_modify_the_event_collections : on_the_event_stream
     {
         [Fact]
@@ -634,9 +595,7 @@ namespace NEventStore
     /// which we are appending new events, is not the last one of the stream)
     /// https://github.com/NEventStore/NEventStore/issues/420
     /// </summary>
-#if MSTEST
-    [TestClass]
-#endif
+
     public class issue_420_when_adding_events_in_the_middle_of_the_last_commit : on_the_event_stream
     {
         private const int MinRevision = 2;
@@ -706,9 +665,7 @@ namespace NEventStore
     /// which we are appending new events, is not the last one of the stream)
     /// https://github.com/NEventStore/NEventStore/issues/420
     /// </summary>
-#if MSTEST
-    [TestClass]
-#endif
+
     public class issue_420_when_adding_events_in_the_middle_a_commit_if_persistence_returns_too_many_commits : on_the_event_stream
     {
         private const int MinRevision = 2;

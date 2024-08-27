@@ -25,9 +25,7 @@ namespace NEventStore.Persistence.AcceptanceTests
 #endif
 
     /* Transactions support must be investigated, it should be valid only for Databases that supports it (InMemoryPersistence will not). */
-#if MSTEST
-    [TestClass]
-#endif
+
     public class TransactionConcern : PersistenceEngineConcern
     {
         private ICommit[] _commits;

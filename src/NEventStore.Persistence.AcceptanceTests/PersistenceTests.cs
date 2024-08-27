@@ -9,23 +9,12 @@ namespace NEventStore.Persistence.AcceptanceTests
     using System.Linq;
     using NEventStore.Persistence.AcceptanceTests.BDD;
     using FluentAssertions;
-#if MSTEST
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-#endif
-#if NUNIT
+
     using NUnit.Framework;
     using System.Threading.Tasks;
     using System.Threading;
     using System.Globalization;
-#endif
-#if XUNIT
-    using Xunit;
-    using Xunit.Should;
-#endif
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_a_commit_header_has_a_name_that_contains_a_period : PersistenceEngineConcern
     {
         private ICommit _persisted;
@@ -56,9 +45,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_a_commit_is_successfully_persisted : PersistenceEngineConcern
     {
         private CommitAttempt _attempt;
@@ -134,9 +120,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_reading_from_a_given_revision : PersistenceEngineConcern
     {
         private const int LoadFromCommitContainingRevision = 3;
@@ -173,9 +156,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_reading_from_a_given_revision_to_commit_revision : PersistenceEngineConcern
     {
         private const int LoadFromCommitContainingRevision = 3;
@@ -212,9 +192,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_committing_a_stream_with_the_same_revision : PersistenceEngineConcern
     {
         private CommitAttempt _attemptWithSameRevision;
@@ -240,9 +217,6 @@ namespace NEventStore.Persistence.AcceptanceTests
 
     // This test ensure the uniqueness of BucketId+StreamId+CommitSequence 
     // to avoid concurrency issues
-#if MSTEST
-    [TestClass]
-#endif
     public class when_committing_a_stream_with_the_same_sequence : PersistenceEngineConcern
     {
         private CommitAttempt _attempt1, _attempt2;
@@ -282,9 +256,6 @@ namespace NEventStore.Persistence.AcceptanceTests
     }
 
     //TODO:This test looks exactly like the one above. What are we trying to prove?
-#if MSTEST
-    [TestClass]
-#endif
     public class when_attempting_to_overwrite_a_committed_sequence : PersistenceEngineConcern
     {
         private CommitAttempt _failedAttempt;
@@ -310,9 +281,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_attempting_to_persist_a_commit_twice : PersistenceEngineConcern
     {
         private CommitAttempt _attemptTwice;
@@ -344,9 +312,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_attempting_to_persist_a_commitId_twice_on_same_stream : PersistenceEngineConcern
     {
         private CommitAttempt _attemptTwice;
@@ -379,9 +345,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_committing_more_events_than_the_configured_page_size : PersistenceEngineConcern
     {
         private CommitAttempt[] _committed;
@@ -414,9 +378,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_saving_a_snapshot : PersistenceEngineConcern
     {
         private bool _added;
@@ -454,9 +415,6 @@ namespace NEventStore.Persistence.AcceptanceTests
     /// snapshot, that was the original design (it's up to the driver decide what to do)
     /// this behavior can be changed in a future implementation.
     /// </summary>
-#if MSTEST
-    [TestClass]
-#endif
     public class when_adding_multiple_snapshots_for_same_bucketId_streamId_streamRevision : PersistenceEngineConcern
     {
         private bool _added;
@@ -503,9 +461,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_retrieving_a_snapshot : PersistenceEngineConcern
     {
         private ISnapshot _correct;
@@ -551,9 +506,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_a_snapshot_has_been_added_to_the_most_recent_commit_of_a_stream : PersistenceEngineConcern
     {
         private const string SnapshotData = "snapshot";
@@ -581,9 +533,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_adding_a_commit_after_a_snapshot : PersistenceEngineConcern
     {
         private const int WithinThreshold = 2;
@@ -619,9 +569,6 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
     public class when_reading_all_commits_from_a_particular_point_in_time : PersistenceEngineConcern
     {
         private ICommit[] _committed;
@@ -656,9 +603,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_paging_over_all_commits_from_a_particular_point_in_time : PersistenceEngineConcern
     {
         private CommitAttempt[] _committed;
@@ -694,9 +639,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_paging_over_all_commits_from_a_particular_checkpoint : PersistenceEngineConcern
     {
         private List<Guid> _committed;
@@ -726,9 +669,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_paging_over_all_commits_of_a_bucket_from_a_particular_checkpoint : PersistenceEngineConcern
     {
         private List<Guid> _committedOnBucket1;
@@ -767,9 +708,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_paging_over_all_commits_from_a_particular_checkpoint_to_a_checkpoint : PersistenceEngineConcern
     {
         private readonly List<Guid> _committed = new List<Guid>();
@@ -808,9 +747,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_paging_over_all_commits_of_a_bucket_from_a_particular_checkpoint_to_a_checkpoint : PersistenceEngineConcern
     {
         private List<Guid> _committedOnBucket1;
@@ -854,9 +791,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_reading_all_commits_from_the_year_1_AD : PersistenceEngineConcern
     {
         private Exception _thrown;
@@ -874,9 +809,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_purging_all_commits : PersistenceEngineConcern
     {
         protected override void Context()
@@ -902,9 +835,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_invoking_after_disposal : PersistenceEngineConcern
     {
         private Exception _thrown;
@@ -926,9 +857,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_committing_a_stream_with_the_same_id_as_a_stream_same_bucket : PersistenceEngineConcern
     {
         private string _streamId;
@@ -958,9 +887,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_committing_a_stream_with_the_same_id_as_a_stream_in_another_bucket : PersistenceEngineConcern
     {
         private const string _bucketAId = "a";
@@ -1008,9 +935,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_saving_a_snapshot_for_a_stream_with_the_same_id_as_a_stream_in_another_bucket : PersistenceEngineConcern
     {
         private const string _bucketAId = "a";
@@ -1040,9 +965,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_reading_all_commits_from_a_particular_point_in_time_and_there_are_streams_in_multiple_buckets : PersistenceEngineConcern
     {
         private const string _bucketAId = "a";
@@ -1082,9 +1005,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_getting_all_commits_since_checkpoint_and_there_are_streams_in_multiple_buckets : PersistenceEngineConcern
     {
         private ICommit[] _commits;
@@ -1122,9 +1043,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_purging_all_commits_and_there_are_streams_in_multiple_buckets : PersistenceEngineConcern
     {
         private const string _bucketAId = "a";
@@ -1175,9 +1094,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         public String S { get; set; }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_gettingfromcheckpoint_amount_of_commits_exceeds_pagesize : PersistenceEngineConcern
     {
         private ICommit[] _commits;
@@ -1206,9 +1123,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_a_payload_is_large : PersistenceEngineConcern
     {
         [Fact]

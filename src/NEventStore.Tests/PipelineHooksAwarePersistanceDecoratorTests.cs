@@ -469,9 +469,7 @@ namespace NEventStore
         }
     }
 
-#if MSTEST
-    [TestClass]
-#endif
+
     public class when_reading_the_all_events_from_checkpoint_with_filtering_pipelinehook : using_underlying_persistence
     {
         private ICommit _commit;

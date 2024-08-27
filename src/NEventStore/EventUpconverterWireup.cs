@@ -71,10 +71,10 @@ namespace NEventStore
 
         public virtual EventUpconverterWireup WithConvertersFrom(params Assembly[] assemblies)
         {
-           
-            
-                Logger.LogDebug(Messages.EventUpconvertersLoadedFrom,
-                    string.Join(", ", assemblies.Select(a => $"{a.GetName().Name} {a.GetName().Version}")));
+
+
+            Logger.LogDebug(Messages.EventUpconvertersLoadedFrom,
+                string.Join(", ", assemblies.Select(a => $"{a.GetName().Name} {a.GetName().Version}")));
             _assembliesToScan.AddRange(assemblies);
             return this;
         }

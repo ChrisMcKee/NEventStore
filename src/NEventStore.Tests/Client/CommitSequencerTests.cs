@@ -21,9 +21,7 @@ using Xunit.Should;
 
 namespace NEventStore.PollingClient
 {
-#if MSTEST
-    [TestClass]
-#endif
+
 #if NUNIT
     [TestFixture]
 #endif

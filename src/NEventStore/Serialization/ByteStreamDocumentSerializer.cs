@@ -6,7 +6,7 @@ namespace NEventStore.Serialization
 
     public class ByteStreamDocumentSerializer : IDocumentSerializer
     {
-        private static readonly ILogger Logger = LogFactory.BuildLogger(typeof (ByteStreamDocumentSerializer));
+        private static readonly ILogger Logger = LogFactory.BuildLogger(typeof(ByteStreamDocumentSerializer));
         private readonly ISerialize _serializer;
 
         public ByteStreamDocumentSerializer(ISerialize serializer)
@@ -16,13 +16,13 @@ namespace NEventStore.Serialization
 
         public object Serialize<T>(T graph)
         {
-            Logger.LogTrace(Messages.SerializingGraph, typeof (T));
+            Logger.LogTrace(Messages.SerializingGraph, typeof(T));
             return _serializer.Serialize(graph);
         }
 
         public T Deserialize<T>(object document)
         {
-            Logger.LogTrace(Messages.DeserializingStream, typeof (T));
+            Logger.LogTrace(Messages.DeserializingStream, typeof(T));
             byte[] bytes = FromBase64(document as string) ?? document as byte[];
             return _serializer.Deserialize<T>(bytes);
         }

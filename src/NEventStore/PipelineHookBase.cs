@@ -15,13 +15,13 @@ namespace NEventStore
         }
 
         public virtual void PostCommit(ICommit committed)
-        {}
+        { }
 
         public virtual void OnPurge(string bucketId)
-        {}
+        { }
 
         public virtual void OnDeleteStream(string bucketId, string streamId)
-        {}
+        { }
 
         public void Dispose()
         {

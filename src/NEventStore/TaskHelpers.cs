@@ -9,13 +9,13 @@
         internal static Task Delay(double milliseconds, CancellationToken cancellationToken)
         {
             var tcs = new TaskCompletionSource<bool>();
-			TimerCallback callback = (_) => tcs.TrySetResult(true);
+            TimerCallback callback = (_) => tcs.TrySetResult(true);
 #pragma warning disable IDE0067 // Dispose objects before losing scope
             var timer = new Timer(callback, null, 0, Convert.ToInt32(milliseconds));
 #pragma warning restore IDE0067 // Dispose objects before losing scope
             CancellationTokenRegistration cancellationTokenRegistration = cancellationToken.Register(() =>
             {
-				timer.Dispose();
+                timer.Dispose();
                 tcs.TrySetCanceled();
             });
             return tcs.Task.ContinueWith(_ =>

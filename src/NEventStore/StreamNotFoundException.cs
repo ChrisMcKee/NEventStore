@@ -13,7 +13,7 @@ namespace NEventStore
         ///     Initializes a new instance of the StreamNotFoundException class.
         /// </summary>
         public StreamNotFoundException()
-        {}
+        { }
 
         /// <summary>
         ///     Initializes a new instance of the StreamNotFoundException class.
@@ -21,7 +21,7 @@ namespace NEventStore
         /// <param name="message">The message that describes the error.</param>
         public StreamNotFoundException(string message)
             : base(message)
-        {}
+        { }
 
         /// <summary>
         ///     Initializes a new instance of the StreamNotFoundException class.
@@ -30,7 +30,7 @@ namespace NEventStore
         /// <param name="innerException">The message that is the cause of the current exception.</param>
         public StreamNotFoundException(string message, Exception innerException)
             : base(message, innerException)
-        {}
+        { }
 
         /// <summary>
         ///     Initializes a new instance of the StreamNotFoundException class.
@@ -39,6 +39,6 @@ namespace NEventStore
         /// <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
         protected StreamNotFoundException(SerializationInfo info, StreamingContext context)
             : base(info, context)
-        {}
+        { }
     }
 }

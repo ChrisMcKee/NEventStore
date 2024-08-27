@@ -32,7 +32,7 @@
         }
 
         internal static void NotLessThanOrEqualTo<T>(Expression<Func<T>> reference, T value, T compareTo)
-            where T: IComparable
+            where T : IComparable
         {
             NotNull(reference, value);
             if (value.CompareTo(compareTo) <= 0)
@@ -72,7 +72,7 @@
 
         private static string GetParameterName(LambdaExpression reference)
         {
-            return ((MemberExpression) reference.Body).Member.Name;
+            return ((MemberExpression)reference.Body).Member.Name;
         }
     }
 }

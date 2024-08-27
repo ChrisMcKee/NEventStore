@@ -39,6 +39,6 @@ namespace NEventStore
         /// <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
         protected ConcurrencyException(SerializationInfo info, StreamingContext context)
             : base(info, context)
-        {}
+        { }
     }
 }
