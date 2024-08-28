@@ -1,5 +1,5 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
-
+#pragma warning disable NUnit1032
 using System;
 using System.Collections.Generic;
 using System.Linq;

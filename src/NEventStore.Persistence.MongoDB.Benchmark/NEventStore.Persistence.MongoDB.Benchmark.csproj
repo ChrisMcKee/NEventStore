@@ -9,6 +9,7 @@
         <OutputType>Exe</OutputType>
         <DebugType>pdbonly</DebugType>
         <DebugSymbols>true</DebugSymbols>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -16,7 +17,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BenchmarkDotNet" Version="0.13.6" />
+        <PackageReference Include="BenchmarkDotNet" Version="0.14.0" />
     </ItemGroup>
 
     <ItemGroup>

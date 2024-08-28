@@ -1,7 +1,7 @@
 
 #pragma warning disable 169 // ReSharper disable InconsistentNaming
 #pragma warning disable IDE1006 // Naming Styles
-
+#pragma warning disable NUnit1032
 namespace NEventStore
 {
     using System;

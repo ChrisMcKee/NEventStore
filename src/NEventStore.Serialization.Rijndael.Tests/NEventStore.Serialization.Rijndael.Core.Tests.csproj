@@ -3,11 +3,10 @@
     <PropertyGroup>
         <TargetFrameworks>net8.0;net48</TargetFrameworks>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <ApplicationIcon/>
         <OutputTypeEx>exe</OutputTypeEx>
-        <StartupObject/>
         <AssemblyName>NEventStore.Serialization.Rijndael.Tests</AssemblyName>
         <RootNamespace>NEventStore.Serialization.Rijndael.Tests</RootNamespace>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -18,27 +17,27 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentAssertions" Version="6.11.0"/>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3"/>
-        <PackageReference Include="NUnit" Version="3.13.3"/>
-        <PackageReference Include="NUnit3TestAdapter" Version="4.5.0"/>
+        <PackageReference Include="FluentAssertions" Version="6.12.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
+        <PackageReference Include="NUnit" Version="3.14.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="packages.config"/>
+        <None Remove="packages.config" />
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="..\NEventStore.Persistence.AcceptanceTests\SerializationTests.cs" Link="SerializationTests.cs"/>
+        <Compile Include="..\NEventStore.Persistence.AcceptanceTests\SerializationTests.cs" Link="SerializationTests.cs" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\NEventStore.Persistence.AcceptanceTests\NEventStore.Persistence.AcceptanceTests.Core.csproj"/>
-        <ProjectReference Include="..\NEventStore\NEventStore.Core.csproj"/>
+        <ProjectReference Include="..\NEventStore.Persistence.AcceptanceTests\NEventStore.Persistence.AcceptanceTests.Core.csproj" />
+        <ProjectReference Include="..\NEventStore\NEventStore.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}"/>
+        <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
     </ItemGroup>
 
 </Project>

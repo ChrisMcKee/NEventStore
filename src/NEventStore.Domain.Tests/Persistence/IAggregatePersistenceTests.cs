@@ -1,4 +1,6 @@
-﻿namespace NEventStore.Domain.Tests.Persistence
+﻿#pragma warning disable NUnit1032
+
+namespace NEventStore.Domain.Tests.Persistence
 {
     using System;
     using NEventStore.Domain.Core;

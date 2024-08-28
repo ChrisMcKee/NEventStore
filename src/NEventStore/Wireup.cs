@@ -1,3 +1,5 @@
+using System;
+
 namespace NEventStore
 {
     using System.Collections.Generic;
@@ -47,7 +49,7 @@ namespace NEventStore
 
         public virtual Wireup HookIntoPipelineUsing(IEnumerable<IPipelineHook> hooks)
         {
-            return HookIntoPipelineUsing((hooks ?? new IPipelineHook[0]).ToArray());
+            return HookIntoPipelineUsing((hooks ?? Array.Empty<IPipelineHook>()).ToArray());
         }
 
         public virtual Wireup HookIntoPipelineUsing(params IPipelineHook[] hooks)
@@ -90,7 +92,7 @@ namespace NEventStore
             var concurrency = context.Resolve<OptimisticPipelineHook>();
             var upconverter = context.Resolve<EventUpconverterPipelineHook>();
 
-            ICollection<IPipelineHook> hooks = context.Resolve<ICollection<IPipelineHook>>() ?? new IPipelineHook[0];
+            ICollection<IPipelineHook> hooks = context.Resolve<ICollection<IPipelineHook>>() ?? Array.Empty<IPipelineHook>();
             hooks = new IPipelineHook[] { concurrency, upconverter }
                 .Concat(hooks)
                 .Where(x => x != null)

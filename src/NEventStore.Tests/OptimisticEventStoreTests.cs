@@ -1,4 +1,5 @@
 
+#pragma warning disable NUnit1032
 #pragma warning disable 169 // ReSharper disable InconsistentNaming
 #pragma warning disable IDE1006 // Naming Styles
 #pragma warning disable S101 // Types should be named in PascalCase
@@ -89,7 +90,7 @@ namespace NEventStore
 
         protected override void Context()
         {
-            A.CallTo(() => Persistence.GetFrom(Bucket.Default, streamId, 0, 0)).Returns(new ICommit[0]);
+            A.CallTo(() => Persistence.GetFrom(Bucket.Default, streamId, 0, 0)).Returns(Array.Empty<ICommit>());
         }
 
         protected override void Because()

@@ -1,4 +1,5 @@
-﻿namespace NEventStore.Persistence.InMemory
+﻿#pragma warning disable NUnit1032
+namespace NEventStore.Persistence.InMemory
 {
     using System;
     using System.Collections.Generic;
