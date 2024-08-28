@@ -1,4 +1,6 @@
 ﻿
+#pragma warning disable NUnit1032
+
 namespace NEventStore.Persistence.MongoDB.Tests.AcceptanceTests
 {
     using System;

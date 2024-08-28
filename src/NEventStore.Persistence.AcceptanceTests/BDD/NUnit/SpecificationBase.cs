@@ -69,7 +69,7 @@ namespace NEventStore.Persistence.AcceptanceTests.BDD
     }
 
     /// <summary>
-    /// Attribute used to identiy the tests
+    /// Attribute used to identify the tests
     /// 
     /// for custom actions:
     /// http://nunit.org/index.php?p=actionAttributes&r=2.6.3

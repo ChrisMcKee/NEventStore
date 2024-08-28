@@ -44,8 +44,8 @@ namespace NEventStore.Persistence.MongoDB.Tests.AcceptanceTests
         public void Settings_are_correctly_applied()
         {
             var settings = _db.Client.Settings;
-            Assert.AreEqual(TestApplicationName, settings.ApplicationName);
-            Assert.AreEqual(TestReplicaSetName, settings.ReplicaSetName);
+            Assert.That(settings.ApplicationName, Is.EqualTo(TestApplicationName));
+            Assert.That(settings.ReplicaSetName, Is.EqualTo(TestReplicaSetName));
         }
     }
 
@@ -81,7 +81,7 @@ namespace NEventStore.Persistence.MongoDB.Tests.AcceptanceTests
         public void Database_was_correctly_created()
         {
             Assert.IsNotNull(_db);
-            Assert.AreEqual(_mongoClient, _db.Client);
+            Assert.That(_db.Client, Is.EqualTo(_mongoClient));
         }
     }
 
@@ -118,7 +118,7 @@ namespace NEventStore.Persistence.MongoDB.Tests.AcceptanceTests
         public void Database_was_correctly_created()
         {
             Assert.IsNotNull(_db);
-            Assert.AreEqual(_mongoClient, _db.Client);
+            Assert.That(_db.Client, Is.EqualTo(_mongoClient));
         }
     }
 
@@ -148,7 +148,7 @@ namespace NEventStore.Persistence.MongoDB.Tests.AcceptanceTests
         public void Exception_is_thrown()
         {
             Assert.IsNotNull(_ex);
-            Assert.AreEqual("MongoClient instance was created with a different connection string: host and port should match.", _ex.Message);
+            Assert.That(_ex.Message, Is.EqualTo("MongoClient instance was created with a different connection string: host and port should match."));
         }
 
         [Fact]
@@ -186,7 +186,7 @@ namespace NEventStore.Persistence.MongoDB.Tests.AcceptanceTests
         public void Exception_is_thrown()
         {
             Assert.IsNotNull(_ex);
-            Assert.AreEqual("MongoClient instance was created with a different connection string: hosts and ports should match.", _ex.Message);
+            Assert.That(_ex.Message, Is.EqualTo("MongoClient instance was created with a different connection string: hosts and ports should match."));
         }
 
         [Fact]
