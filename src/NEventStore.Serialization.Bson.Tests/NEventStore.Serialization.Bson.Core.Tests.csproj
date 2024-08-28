@@ -8,7 +8,6 @@
         <AssemblyName>NEventStore.Serialization.Bson.Tests</AssemblyName>
         <IsPackable>false</IsPackable>
         <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
-
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
